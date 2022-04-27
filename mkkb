@@ -1,0 +1,2 @@
+#!/bin/bash
+k3d cluster create kb --registry-use k3d-regi:5050 --agents 5 --api-port 6550 -p "80:80@loadbalancer" --k3s-arg "--disable=traefik@servers:*"
