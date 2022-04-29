@@ -97,8 +97,7 @@ serviceMonitor:
 #  ##
 #  relabelings:
 #    - sourceLabels: [__meta_kubernetes_pod_node_name]
-#      separator: ;
-#      regex: ^(.*)$
+#      separator: ; regex: ^(.*)$
 #      targetLabel: nodename
 #      replacement: $1
 #      action: replace
@@ -356,19 +355,12 @@ daemonSetVolumes:
   - name: varlibdockercontainers
     hostPath:
       path: /var/lib/docker/containers
-  - name: etcmachineid
-    configMap:
-      name: etcmachineidcm
 
 daemonSetVolumeMounts:
   - name: varlog
     mountPath: /var/log
   - name: varlibdockercontainers
     mountPath: /var/lib/docker/containers
-    readOnly: true
-  - name: etcmachineid
-    mountPath: /etc/machine-id
-    subPath: machine-id
     readOnly: true
 
 args: []
