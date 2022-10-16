@@ -1,6 +1,6 @@
 variable "kube_config" {
   type    = string
-  default = "~/.kube/config"
+  default = "~/.kube/kb"
 }
 
 variable "ns-system" {
